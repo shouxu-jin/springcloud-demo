@@ -24,3 +24,24 @@ zuul:
     spring-cloud-provider2:
       path: /world
       serviceId: spring-cloud-provider2
+    auth-server:
+      path: /auth-server/**
+      sensitiveHeaders:
+      serviceId: auth-server
+      strip-prefix: false
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      access-token-uri: http://127.0.0.1:8091/auth-server/oauth/token
+      user-authorization-uri: http://127.0.0.1:8091/auth-server/oauth/authorize
+      client-id: fooClient
+      client-secret: fooSecret
+    resource:
+      user-info-uri:  http://127.0.0.1:8091/auth-server/user
+      prefer-token-info: false
+logging:
+  level:
+    org: debug
+    com: debug

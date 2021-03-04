@@ -16,6 +16,7 @@
         <module>springcloud-zuul-demo-server</module>
         <module>springcloud-feign-demo-customer-server2</module>
         <module>spring-boot-demo-admin-server</module>
+        <module>springcloud-auth-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
