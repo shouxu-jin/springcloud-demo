@@ -1,13 +1,18 @@
 package server;
 
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-@Order(value = 101)
-public class OauthWebSecurity extends WebSecurityConfigurerAdapter {
+@EnableOAuth2Sso
+public class OauthWebSecurity extends OAuth2SsoDefaultConfiguration {
+    public OauthWebSecurity(ApplicationContext applicationContext) {
+        super(applicationContext);
+    }
+
     @Override
     public void configure(WebSecurity web) throws Exception {
         super.configure(web);
