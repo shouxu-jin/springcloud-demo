@@ -36,7 +36,7 @@ public class OAuthServerConfiguration extends AuthorizationServerConfigurerAdapt
                 .inMemory()
                 .withClient("fooClient")
                 .secret(passwordEncoder.encode("fooSecret"))
-                .redirectUris("http://localhost:8082/login")
+                .redirectUris("http://localhost:8082/zuullogin")
                 .authorizedGrantTypes("authorization_code", "refresh_token")
                 .scopes("fooScope")
                 .autoApprove(true); // 所有scope自动授权
