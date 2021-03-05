@@ -29,6 +29,7 @@ zuul:
       sensitiveHeaders:
       serviceId: auth-server
       strip-prefix: false
+  sensitive-headers:
 security:
   basic:
     enabled: false
