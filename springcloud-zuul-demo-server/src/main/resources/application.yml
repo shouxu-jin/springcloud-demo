@@ -48,3 +48,8 @@ logging:
   level:
     org: debug
     com: debug
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

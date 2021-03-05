@@ -1,19 +1,17 @@
-//package server;
-//
-//import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-//
-//@Configuration
-//public class OauthWebSecurity extends WebSecurityConfigurerAdapter {
-//    @Override
-//    public void configure(HttpSecurity http) throws Exception {
-//        http.antMatcher("/**")
-//                .authorizeRequests()
-//                .antMatchers("/", "/login", "auth-server/**").permitAll()
-//                .anyRequest()
-//                .access("@permissionService.hasPermission(request,authentication)");
-//    }
-//}
+package server;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+@Configuration
+@Order(value = 1)
+public class OauthWebSecurity extends WebSecurityConfigurerAdapter {
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        super.configure(web);
+        web.ignoring()
+                .antMatchers("/actuator", "/actuator/**");
+    }
+}
