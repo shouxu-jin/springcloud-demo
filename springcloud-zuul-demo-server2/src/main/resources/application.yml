@@ -1,6 +1,6 @@
 spring:
   application:
-    name: zuul-server
+    name: zuul-server2
   sleuth:
     sampler:
       rate: 100
@@ -9,11 +9,11 @@ spring:
     sender:
       type: WEB
 server:
-  port: 8082
+  port: 8099
   servlet:
     session:
       cookie:
-        domain: www.king.com
+        domain: www.kingdom.com
         path: /
         http-only: true
 eureka:
@@ -43,9 +43,9 @@ security:
     client:
       access-token-uri: http://127.0.0.1:8091/auth-server/oauth/token
       user-authorization-uri: http://127.0.0.1:8091/auth-server/oauth/authorize
-      client-id: fooClient
-      client-secret: fooSecret
-      registered-redirect-uri: http://localhost:8082/zuullogin
+      client-id: fooClient2
+      client-secret: fooSecret2
+      registered-redirect-uri: http://localhost:8099/zuullogin
     resource:
       user-info-uri:  http://127.0.0.1:8091/auth-server/user
       prefer-token-info: false

@@ -36,10 +36,17 @@ public class OAuthServerConfiguration extends AuthorizationServerConfigurerAdapt
                 .inMemory()
                 .withClient("fooClient")
                 .secret(passwordEncoder.encode("fooSecret"))
-                .redirectUris("http://localhost:8082/zuullogin")
+                .redirectUris("http://www.king.com:8082/zuullogin")
                 .authorizedGrantTypes("authorization_code", "refresh_token")
-                .scopes("fooScope")
-                .autoApprove(true); // 所有scope自动授权
+                .scopes("all")
+                .autoApprove(true)
+                .and()
+                .withClient("fooClient2")
+                .secret(passwordEncoder.encode("fooSecret2"))
+                .redirectUris("http://www.kingdom.com:8099/zuullogin")
+                .authorizedGrantTypes("authorization_code", "refresh_token")
+                .scopes("all")
+                .autoApprove(true);
     }
 
     @Override
