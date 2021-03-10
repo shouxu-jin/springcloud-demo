@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds">
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <appender name="SLEUTH-LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>/opt/logs/client-server.log</File>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/opt/logs/client-server.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="SLEUTH-LOG" level="DEBUG" additivity="true">
+        <appender-ref ref="SLEUTH-LOG"/>
+    </logger>
+    <root level="info">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
