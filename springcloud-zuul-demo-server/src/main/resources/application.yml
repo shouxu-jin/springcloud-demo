@@ -46,7 +46,7 @@ security:
       client-id: fooClient
       client-secret: fooSecret
       use-current-uri: false
-      pre-established-redirect-uri: http://localhost:8082/zuullogin
+      pre-established-redirect-uri: http://www.king.com:8082/zuullogin
     resource:
       user-info-uri:  http://127.0.0.1:8091/auth-server/user
       prefer-token-info: false
